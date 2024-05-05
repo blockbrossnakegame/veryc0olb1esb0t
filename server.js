@@ -257,7 +257,7 @@ client.on("message", async (message) => {
     }
   }
       if(command.startsWith("!talk")) {
-        if(message.author.id === ("904076782666391583")) {
+        if(message.author.id === ("904076782666391583") || message.author.id === ("1017921613913657364")  || message.author.id === ("881275610180251688") ) {
           const channel = client.channels.cache.get("1232077870432522371");
           const themessage = await channel.messages.fetch('1236313294873296907');
           const wordToRemove = themessage.content.split(' ')[4];
@@ -270,7 +270,7 @@ client.on("message", async (message) => {
           message.channel.send(embed)
         } else {
           const embed = new MessageEmbed()
-          .setTitle(`<:NoSuccess:1236732681828434051> **Command currently for bruinebies only!**`)
+          .setTitle(`<:NoSuccess:1236732681828434051> **Command currently for bruinebies and people he gave perms only!**`)
           .setColor("#750000");
           message.channel.send(embed)
         }
