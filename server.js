@@ -178,84 +178,84 @@ client.on("message", async (message) => {
         .setColor("#90EE90");
         message.channel.send(embed)
       }
-     if (message.content.startsWith("!left")) {
-    const channel = client.channels.cache.get("1232077870432522371");
-    const themessage = await channel.messages.fetch('1236313294873296907');
-    if (themessage) {
-      const wordToRemove = themessage.content.split(' ')[1];
-      const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) + 1}`);
-      themessage.edit(updatedWords);
-      const embed = new MessageEmbed()
-      .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
-      .setColor("#90EE90");
-      message.channel.send(embed)
-    }
-  }
-  if (message.content.startsWith("!right")) {
-    const channel = client.channels.cache.get("1232077870432522371");
-    const themessage = await channel.messages.fetch('1236313294873296907');
-    if (themessage) {
-      const wordToRemove = themessage.content.split(' ')[1];
-      const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) - 1}`);
-      themessage.edit(updatedWords);
-      const embed = new MessageEmbed()
-      .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
-      .setColor("#90EE90");
-      message.channel.send(embed)
-    }
-  }
-  if (message.content.startsWith("!walk")) {
-    const channel = client.channels.cache.get("1232077870432522371");
-    const themessage = await channel.messages.fetch('1236313294873296907');
-    if (themessage) {
-      const wordToRemove = themessage.content.split(' ')[3];
-      const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) + 1}`);
-      themessage.edit(updatedWords);
-      const embed = new MessageEmbed()
-      .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
-      .setColor("#90EE90");
-      message.channel.send(embed)
-    }
-  }
-  if (message.content.startsWith("!backwards")) {
-    const channel = client.channels.cache.get("1232077870432522371");
-    const themessage = await channel.messages.fetch('1236313294873296907');
-    if (themessage) {
-      const wordToRemove = themessage.content.split(' ')[3];
-      const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) - 1}`);
-      themessage.edit(updatedWords);
-      const embed = new MessageEmbed()
-      .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
-      .setColor("#90EE90");
-      message.channel.send(embed)
-    }
-  }
-  if (message.content.startsWith("!spin")) {
-    const channel = client.channels.cache.get("1232077870432522371");
-    const themessage = await channel.messages.fetch('1236313294873296907');
-    if (themessage) {
-      const wordToRemove = themessage.content.split(' ')[5];
-      const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes`);
-      themessage.edit(updatedWords);
-      const embed = new MessageEmbed()
-      .setTitle(`<:Success:1236732463309656096> **Animation has updated in-game!**`)
-      .setColor("#90EE90");
-      message.channel.send(embed)
-    }
-  }
-  if (message.content.startsWith("!stopspin")) {
-    const channel = client.channels.cache.get("1232077870432522371");
-    const themessage = await channel.messages.fetch('1236313294873296907');
-    if (themessage) {
-      const wordToRemove = themessage.content.split(' ')[5];
-      const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` no`);
-      themessage.edit(updatedWords);
-      const embed = new MessageEmbed()
-      .setTitle(`**<:Success:1236732463309656096> Animation has updated in-game!**`)
-      .setColor("#90EE90");
-      message.channel.send(embed)
-    }
-  }
+      if (message.content.startsWith("!left")) {
+        const channel = client.channels.cache.get("1232077870432522371");
+        const themessage = await channel.messages.fetch('1236313294873296907');
+        if (themessage) {
+          const wordToRemove = themessage.content.split(' ')[1];
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) + 1}`);
+          themessage.edit(updatedWords);
+          const embed = new MessageEmbed()
+          .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
+          .setColor("#90EE90");
+          message.channel.send(embed)
+        }
+      }
+      if (message.content.startsWith("!right")) {
+        const channel = client.channels.cache.get("1232077870432522371");
+        const themessage = await channel.messages.fetch('1236313294873296907');
+        if (themessage) {
+          const wordToRemove = themessage.content.split(' ')[1];
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) - 1}`);
+          themessage.edit(updatedWords);
+          const embed = new MessageEmbed()
+          .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
+          .setColor("#90EE90");
+          message.channel.send(embed)
+        }  
+      }
+      if (message.content.startsWith("!walk")) {
+        const channel = client.channels.cache.get("1232077870432522371");
+        const themessage = await channel.messages.fetch('1236313294873296907');
+        if (themessage) {
+          const wordToRemove = themessage.content.split(' ')[3];
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) + 1}`);
+          themessage.edit(updatedWords);
+          const embed = new MessageEmbed()
+          .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
+          .setColor("#90EE90");
+          message.channel.send(embed)
+        }
+      }
+      if (message.content.startsWith("!backwards")) {
+        const channel = client.channels.cache.get("1232077870432522371");
+        const themessage = await channel.messages.fetch('1236313294873296907');
+        if (themessage) {
+          const wordToRemove = themessage.content.split(' ')[3];
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) - 1}`);
+          themessage.edit(updatedWords);
+          const embed = new MessageEmbed()
+          .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
+          .setColor("#90EE90");
+          message.channel.send(embed)
+        }
+      }
+      if (message.content.startsWith("!spin")) {
+        const channel = client.channels.cache.get("1232077870432522371");
+        const themessage = await channel.messages.fetch('1236313294873296907');
+        if (themessage) {
+          const wordToRemove = themessage.content.split(' ')[5];
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes`);
+          themessage.edit(updatedWords);
+          const embed = new MessageEmbed()
+          .setTitle(`<:Success:1236732463309656096> **Animation has updated in-game!**`)
+          .setColor("#90EE90");
+          message.channel.send(embed)
+        }
+      }
+      if (message.content.startsWith("!stopspin")) {
+        const channel = client.channels.cache.get("1232077870432522371");
+        const themessage = await channel.messages.fetch('1236313294873296907');
+        if (themessage) {
+          const wordToRemove = themessage.content.split(' ')[5];
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` no`);
+          themessage.edit(updatedWords);
+          const embed = new MessageEmbed()
+          .setTitle(`**<:Success:1236732463309656096> Animation has updated in-game!**`)
+          .setColor("#90EE90");
+          message.channel.send(embed)
+        }
+      }
       if(command.startsWith("!talk")) {
         if(message.author.id === ("904076782666391583") || message.author.id === ("1017921613913657364")  || message.author.id === ("881275610180251688") ) {
           const channel = client.channels.cache.get("1232077870432522371");
