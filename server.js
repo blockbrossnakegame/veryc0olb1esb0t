@@ -262,7 +262,7 @@ client.on("message", async (message) => {
         const themessage = await channel.messages.fetch('1236313294873296907');
         const wordToRemove = themessage.content.split(' ')[4];
         const wordtoadd = message.content.split(' ')[1];
-        if (wordtoadd.toLowerCase().match("discord.gg") || wordtoadd.toLowerCase().match("bitch") || wordtoadd.toLowerCase().match("fuck") || wordtoadd.toLowerCase().match("nigger") || wordtoadd.toLowerCase().match("cunt") || wordtoadd.toLowerCase().match("faggot") || wordtoadd.toLowerCase().match("gay") || wordtoadd.toLowerCase().match("sex")) {
+        if (wordtoadd.toLowerCase().match("discord.gg") || wordtoadd.toLowerCase().match("bitch") ||  || wordtoadd.toLowerCase().match("daddy") || wordtoadd.toLowerCase().match("harder") || wordtoadd.toLowerCase().match("porn") || wordtoadd.toLowerCase().match("fuck") || wordtoadd.toLowerCase().match("nigger") || wordtoadd.toLowerCase().match("cunt") || wordtoadd.toLowerCase().match("faggot") || wordtoadd.toLowerCase().match("gay") || wordtoadd.toLowerCase().match("sex")) {
           const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` #####`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
