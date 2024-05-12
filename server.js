@@ -39,7 +39,8 @@ app.get("/beepblock", (req, res) => {
   if (channel) {
     var cool = req.param("cool");
     const embed = new MessageEmbed()
-    channel.send(`${cool} heeft een kick barrier aan geraakt. ik zou ff checken of hij hackt of niet\n doe /ban ${cool} als hij hackt`);
+    channel.send(`${cool} heeft een kick barrier aan geraakt. ik zou ff checken of hij hackt of niet\ndoe **/ban ${cool}** als hij hackt`);
+    res.send(`hello :D`);
   }
 })
 
