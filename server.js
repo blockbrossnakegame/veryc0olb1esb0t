@@ -44,6 +44,17 @@ app.get("/beepblock", (req, res) => {
   }
 })
 
+app.get("/beepblock2", (req, res) => {
+  const channel = client.channels.cache.get("1239185184566284339"); 
+  if (channel) {
+    var cool = req.param("cool");
+    const embed = new MessageEmbed()
+    channel.send(`${cool} heeft godmode.\ndoe **/ban ${cool}**`);
+    res.send(`hello :D`);
+  }
+})
+
+
 app.get("/ruineddevelopment", (req, res) => {
   var effectname = req.param("effectname");
   let channel = client.channels.cache.get("1210262876288319559");
