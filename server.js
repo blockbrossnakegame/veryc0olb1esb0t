@@ -34,6 +34,15 @@ app.get("/test", async (req, res) => {
     }
 })
 
+app.get("/beepblock", (req, res) => {
+  const channel = client.channels.cache.get("1232077870432522371"); 
+  if (channel) {
+    var effectname = req.param("cool");
+    const embed = new MessageEmbed()
+    channel.send(`${cool} heeft een kick barrier aan geraakt. ik zou ff checken of hij hackt of niet\n doe /ban ${cool} als hij hackt`);
+  }
+}
+
 app.get("/ruineddevelopment", (req, res) => {
   var effectname = req.param("effectname");
   let channel = client.channels.cache.get("1210262876288319559");
