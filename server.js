@@ -3,6 +3,8 @@ let client = new Discord.Client();
 let { MessageEmbed } = require("discord.js");
 const express = require("express");
 const app = express();
+let client2 = new Discord.Client();
+const axios = require('axios');
 const allowedRole = '1208186017337581699';
 const owner = '1115992837775953951';
 const imagepermsRuined = '1115992837775953951';
@@ -345,4 +347,41 @@ client.on("messageDelete", async (deletedMessage) => {
   }
 });
 
+client2.on("message", async (message) => {
+  if (message.author.bot) {
+  } else {
+    const command = message.content.toLowerCase()
+    if (command.startsWith(".checkstats")) {
+      const embed2 = new MessageEmbed()
+      .setTitle(`Loading...`)
+      const loadingMsg = await message.channel.send(embed2);
+      const universeId = message.content.split(" ")[1];
+      if (universeId) {
+        try {
+          const response = await axios.get(`https://script.google.com/macros/s/AKfycbwiEUeqijQHzmgCPE632qEZhTIbhA1jEsdBWVdv0eol2KIQuLtK2ijb53BB3B4Ka1eURw/exec?UniverseId=${universeId}`);
+          const stats = response.data.response.response;
+          const embed = new MessageEmbed()
+          embed.setTitle(`${stats.data[0].name}'s game stats!\nCreator: ${stats.data[0].creator.type}, ${stats.data[0].creator.name}`)
+          embed.setDescription(`**Current players:** ${stats.data[0].playing}\n**Current visits:** ${stats.data[0].visits}\n**Favorited Count:** ${stats.data[0].favoritedCount}\n**Avatar Type:** ${stats.data[0].universeAvatarType}\n**Game Price:** ${stats.data[0].price}`)
+          embed.setColor("#90EE90");
+          loadingMsg.edit(embed)
+        } catch (error) {
+          const embed = new MessageEmbed()
+          .setTitle(`An error has occured!`)
+          .setDescription(`Error while getting data, check if the game id is correct.\nDo **not** use the place id!`)
+          embed.setColor("#750000");
+          loadingMsg.edit(embed)
+        }
+      } else {
+        const embed = new MessageEmbed()
+        .setTitle(`An error has occured!`)
+        .setDescription(`You need to add the game id to the end of the command!.\nDo **not** use the place id!`)
+        .setColor("#750000");
+        loadingMsg.edit(embed)
+      }
+    }
+  }
+});
+
+client2.login(process.env.token2);
 client.login(process.env.token);
