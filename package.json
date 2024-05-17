@@ -12,6 +12,7 @@
   "dependencies": {
     "@types/node": "^18.0.6",
     "axios": "^1.6.8",
+    "discord-buttons": "^4.0.0-deprecated",
     "discord.js": "^12.5.3",
     "express": "^4.19.2",
     "node-fetch": "^3.3.2"
