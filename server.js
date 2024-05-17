@@ -8,6 +8,8 @@ const axios = require('axios');
 const allowedRole = '1208186017337581699';
 const owner = '1115992837775953951';
 const imagepermsRuined = '1115992837775953951';
+const disbut = require('discord-buttons');
+disbut(client2);
 
 app.listen(3000, () => {
   console.log("Bies-bot is waking up.");
@@ -322,15 +324,54 @@ client.on("message", async (message) => {
   }
 });
 
+client2.on("clickButton", async (button) => {
+  if (button.id === 'refresh') {
+    const loadingMsg = await button.message;
+    const universeId = button.message.content.split(" ")[0];
+    if (universeId) {
+      try {
+        const response = await axios.get(`https://script.google.com/macros/s/AKfycbwiEUeqijQHzmgCPE632qEZhTIbhA1jEsdBWVdv0eol2KIQuLtK2ijb53BB3B4Ka1eURw/exec?UniverseId=${universeId}`);
+        const stats = response.data.response.response;
+        let verified = '.';
+        if (stats.data[0].creator.hasVerifiedBadge === 'true') {
+          verified = '<:Verified:1241022678022750220>.';
+        }
+        const embed = new MessageEmbed()
+          embed.setTitle(`${stats.data[0].name}'s game stats!\nCreator: ${stats.data[0].creator.type}, ${stats.data[0].creator.name}${verified}`)
+          embed.setDescription(`**Current players:** ${stats.data[0].playing}\n**Current visits:** ${stats.data[0].visits}\n**Favorited Count:** ${stats.data[0].favoritedCount}\n**Avatar Type:** ${stats.data[0].universeAvatarType}\n**Game Price:** ${stats.data[0].price} <:Robux:1241019742131720224>\n\n[**Game Link**](https://www.roblox.com/games/${stats.data[0].rootPlaceId})`)
+          embed.setColor("#90EE90");
+          embed.setFooter('Made by bruinebies')
+        loadingMsg.edit(`${universeId}`, { embed: embed });
+      } catch (error) {
+        const embed = new MessageEmbed()
+          embed.setTitle(`An error has occured!`)
+            embed.setDescription(`Error while getting data, check if the game id is correct.\nDo **not** use the place id!`)
+            embed.setColor("#750000");
+        loadingMsg.edit(`${universeId}`, { embed: embed });
+      }
+    } else {
+      const embed = new MessageEmbed()
+        .setTitle(`An error has occured!`)
+        .setDescription(`You need to add the game id to the end of the command!.\nDo **not** use the place id!`)
+        .setColor("#750000");
+      loadingMsg.edit(`${universeId}`, { embed: embed });
+    }
+  }
+});
+
 client2.on("message", async (message) => {
   if (message.author.bot) {
   } else {
     const command = message.content.toLowerCase()
     if (command.startsWith(".checkstats")) {
+      let button = new disbut.MessageButton()
+      button.setLabel('Refresh Stats')
+      button.setStyle('green');
+      button.setID('refresh')
       const embed2 = new MessageEmbed()
       .setTitle(`Loading...`)
-      const loadingMsg = await message.channel.send(embed2);
       const universeId = message.content.split(" ")[1];
+      const loadingMsg = await message.channel.send(`${universeId}`, { embed: embed2, components: [new disbut.MessageActionRow().addComponent(button)] });
       if (universeId) {
         try {
           const response = await axios.get(`https://script.google.com/macros/s/AKfycbwiEUeqijQHzmgCPE632qEZhTIbhA1jEsdBWVdv0eol2KIQuLtK2ijb53BB3B4Ka1eURw/exec?UniverseId=${universeId}`);
@@ -349,7 +390,7 @@ client2.on("message", async (message) => {
           .setTitle(`An error has occured!`)
           .setDescription(`Error while getting data, check if the game id is correct.\nDo **not** use the place id!`)
           embed.setColor("#750000");
-          loadingMsg.edit(embed)
+          loadingMsg.edit(`${universeId}`, { embed: embed2, components: [new disbut.MessageActionRow().addComponent(button)] })
         }
       } else {
         const embed = new MessageEmbed()
@@ -361,6 +402,8 @@ client2.on("message", async (message) => {
     }
   }
 });
+
+client2.login(process.env.token);
 
 client.on("messageUpdate", async (oldMessage, newMessage) => {
   if (newMessage.author.bot) return;
