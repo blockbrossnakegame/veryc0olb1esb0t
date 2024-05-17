@@ -334,10 +334,14 @@ client2.on("message", async (message) => {
       if (universeId) {
         try {
           const response = await axios.get(`https://script.google.com/macros/s/AKfycbwiEUeqijQHzmgCPE632qEZhTIbhA1jEsdBWVdv0eol2KIQuLtK2ijb53BB3B4Ka1eURw/exec?UniverseId=${universeId}`);
+          const verified = '.'
           const stats = response.data.response.response;
+          if (stats.data[0].creator.hasVerifiedBadge === 'false') {
+            verified = '<:Verified:1241022678022750220>.';
+          }
           const embed = new MessageEmbed()
-          embed.setTitle(`${stats.data[0].name}'s game stats!\nCreator: ${stats.data[0].creator.type}, ${stats.data[0].creator.name}`)
-          embed.setDescription(`**Current players:** ${stats.data[0].playing}\n**Current visits:** ${stats.data[0].visits}\n**Favorited Count:** ${stats.data[0].favoritedCount}\n**Avatar Type:** ${stats.data[0].universeAvatarType}\n**Game Price:** ${stats.data[0].price}`)
+          embed.setTitle(`${stats.data[0].name}'s game stats!\nCreator: ${stats.data[0].creator.type}, ${stats.data[0].creator.name}${verified}`)
+          embed.setDescription(`**Current players:** ${stats.data[0].playing}\n**Current visits:** ${stats.data[0].visits}\n**Favorited Count:** ${stats.data[0].favoritedCount}\n**Avatar Type:** ${stats.data[0].universeAvatarType}\n**Game Price:** ${stats.data[0].price} <:Robux:1241019742131720224>\n\n[**Game Link**](https://www.roblox.com/games/${stats.data[0].rootPlaceId})`)
           embed.setColor("#90EE90");
           loadingMsg.edit(embed)
         } catch (error) {
