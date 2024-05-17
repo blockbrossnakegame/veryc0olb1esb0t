@@ -340,20 +340,22 @@ client2.on("clickButton", async (button) => {
           embed.setTitle(`${stats.data[0].name}'s game stats!\nCreator: ${stats.data[0].creator.type}, ${stats.data[0].creator.name}${verified}`)
           embed.setDescription(`**Current players:** ${stats.data[0].playing}\n**Current visits:** ${stats.data[0].visits}\n**Favorited Count:** ${stats.data[0].favoritedCount}\n**Avatar Type:** ${stats.data[0].universeAvatarType}\n**Game Price:** ${stats.data[0].price} <:Robux:1241019742131720224>\n\n[**Game Link**](https://www.roblox.com/games/${stats.data[0].rootPlaceId})`)
           embed.setColor("#90EE90");
-          embed.setFooter('Made by bruinebies')
+          embed.setFooter('Made by: bruinebies')
         loadingMsg.edit(`${universeId}`, { embed: embed });
       } catch (error) {
         const embed = new MessageEmbed()
           embed.setTitle(`An error has occured!`)
             embed.setDescription(`Error while getting data, check if the game id is correct.\nDo **not** use the place id!`)
             embed.setColor("#750000");
+        embed.setFooter('Made by: bruinebies')
         loadingMsg.edit(`${universeId}`, { embed: embed });
       }
     } else {
       const embed = new MessageEmbed()
-        .setTitle(`An error has occured!`)
-        .setDescription(`You need to add the game id to the end of the command!.\nDo **not** use the place id!`)
-        .setColor("#750000");
+        embed.setTitle(`An error has occured!`)
+        embed.setDescription(`You need to add the game id to the end of the command!.\nDo **not** use the place id!`)
+        embed.setColor("#750000");
+      embed.setFooter('Made by: bruinebies')
       loadingMsg.edit(`${universeId}`, { embed: embed });
     }
   }
@@ -369,7 +371,8 @@ client2.on("message", async (message) => {
       button.setStyle('green');
       button.setID('refresh')
       const embed2 = new MessageEmbed()
-      .setTitle(`Loading...`)
+      embed2.setTitle(`Loading...`)
+      embed2.setFooter('Made by: bruinebies')
       const universeId = message.content.split(" ")[1];
       const loadingMsg = await message.channel.send(`${universeId}`, { embed: embed2, components: [new disbut.MessageActionRow().addComponent(button)] });
       if (universeId) {
@@ -384,11 +387,13 @@ client2.on("message", async (message) => {
           embed.setTitle(`${stats.data[0].name}'s game stats!\nCreator: ${stats.data[0].creator.type}, ${stats.data[0].creator.name}${verified}`)
           embed.setDescription(`**Current players:** ${stats.data[0].playing}\n**Current visits:** ${stats.data[0].visits}\n**Favorited Count:** ${stats.data[0].favoritedCount}\n**Avatar Type:** ${stats.data[0].universeAvatarType}\n**Game Price:** ${stats.data[0].price} <:Robux:1241019742131720224>\n\n[**Game Link**](https://www.roblox.com/games/${stats.data[0].rootPlaceId})`)
           embed.setColor("#90EE90");
+          embed.setFooter('Made by: bruinebies');
           loadingMsg.edit(embed)
         } catch (error) {
           const embed = new MessageEmbed()
           .setTitle(`An error has occured!`)
           .setDescription(`Error while getting data, check if the game id is correct.\nDo **not** use the place id!`)
+          embed.setFooter('Made by: bruinebies');
           embed.setColor("#750000");
           loadingMsg.edit(`${universeId}`, { embed: embed2, components: [new disbut.MessageActionRow().addComponent(button)] })
         }
@@ -397,13 +402,12 @@ client2.on("message", async (message) => {
         .setTitle(`An error has occured!`)
         .setDescription(`You need to add the game id to the end of the command!.\nDo **not** use the place id!`)
         .setColor("#750000");
+        embed.setFooter('Made by: bruinebies');
         loadingMsg.edit(embed)
       }
     }
   }
 });
-
-client2.login(process.env.token);
 
 client.on("messageUpdate", async (oldMessage, newMessage) => {
   if (newMessage.author.bot) return;
