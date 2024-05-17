@@ -1,9 +1,9 @@
 let Discord = require("discord.js");
 let client = new Discord.Client();
+let client2 = new Discord.Client();
 let { MessageEmbed } = require("discord.js");
 const express = require("express");
 const app = express();
-let client2 = new Discord.Client();
 const axios = require('axios');
 const allowedRole = '1208186017337581699';
 const owner = '1115992837775953951';
@@ -322,35 +322,6 @@ client.on("message", async (message) => {
   }
 });
 
-client.on("messageUpdate", async (oldMessage, newMessage) => {
-  if (newMessage.author.bot) return;
-  const channel = client.channels.cache.get("1225151478839119902"); 
-  if (channel) {
-    if (oldMessage.guild.id === '1115963224462999613') {
-      const embed = new MessageEmbed()
-      .setTitle(`${oldMessage.author.username}'s messages is edited`)
-      .setDescription(`**Old message content:** ${oldMessage.content}
-      **New message content:** ${newMessage.content}`)
-      .setColor("#FFBF00");
-      channel.send(embed);
-    }
-  }
-});
-
-client.on("messageDelete", async (deletedMessage) => {
-  if (deletedMessage.author.bot) {
-  } else {
-    if (deletedMessage.guild.id === '1115963224462999613') {
-      let channel = client.channels.cache.get("1225151427513679872");
-      const embed = new MessageEmbed()
-      .setTitle(`${deletedMessage.author.username}'s messages is deleted`)
-      .setDescription(`**Message content:** ${deletedMessage.content}`)
-      .setColor("#ff0000");
-      channel.send(embed);
-    }
-  }
-});
-
 client2.on("message", async (message) => {
   if (message.author.bot) {
   } else {
@@ -383,6 +354,35 @@ client2.on("message", async (message) => {
         .setColor("#750000");
         loadingMsg.edit(embed)
       }
+    }
+  }
+});
+
+client.on("messageUpdate", async (oldMessage, newMessage) => {
+  if (newMessage.author.bot) return;
+  const channel = client.channels.cache.get("1225151478839119902"); 
+  if (channel) {
+    if (oldMessage.guild.id === '1115963224462999613') {
+      const embed = new MessageEmbed()
+      .setTitle(`${oldMessage.author.username}'s messages is edited`)
+      .setDescription(`**Old message content:** ${oldMessage.content}
+      **New message content:** ${newMessage.content}`)
+      .setColor("#FFBF00");
+      channel.send(embed);
+    }
+  }
+});
+
+client.on("messageDelete", async (deletedMessage) => {
+  if (deletedMessage.author.bot) {
+  } else {
+    if (deletedMessage.guild.id === '1115963224462999613') {
+      let channel = client.channels.cache.get("1225151427513679872");
+      const embed = new MessageEmbed()
+      .setTitle(`${deletedMessage.author.username}'s messages is deleted`)
+      .setDescription(`**Message content:** ${deletedMessage.content}`)
+      .setColor("#ff0000");
+      channel.send(embed);
     }
   }
 });
