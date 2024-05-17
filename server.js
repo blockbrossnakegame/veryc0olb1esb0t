@@ -17,6 +17,10 @@ client.on("ready", () => {
   client.user.setActivity("pizza in the oven", { type: "WATCHING" });
 });
 
+client2.on("ready", () => {
+  client2.user.setActivity("some game stats.", { type: "WATCHING" });
+});
+
 app.get("/", (req, res) => {
   res.send(`bies-bot`);
 })
