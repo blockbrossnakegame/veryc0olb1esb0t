@@ -336,12 +336,12 @@ client2.on("clickButton", async (button) => {
         if (stats.data[0].creator.hasVerifiedBadge === 'true') {
           verified = '<:Verified:1241022678022750220>.';
         }
-        const embed = new MessageEmbed()
+        let time = stats.data[0].updated.split("T")[0];
+          const embed = new MessageEmbed()
           embed.setTitle(`${stats.data[0].name}'s game stats!\nCreator: ${stats.data[0].creator.type}, ${stats.data[0].creator.name}${verified}`)
-          embed.setDescription(`**Current players:** ${stats.data[0].playing}\n**Current visits:** ${stats.data[0].visits}\n**Favorited Count:** ${stats.data[0].favoritedCount}\n**Avatar Type:** ${stats.data[0].universeAvatarType}\n**Game Price:** ${stats.data[0].price} <:Robux:1241019742131720224>\n\n[**Game Link**](https://www.roblox.com/games/${stats.data[0].rootPlaceId})`)
+          embed.setDescription(`**Current players:** ${stats.data[0].playing}\n**Current visits:** ${stats.data[0].visits}\n**Favorited Count:** ${stats.data[0].favoritedCount}\n**Avatar Type:** ${stats.data[0].universeAvatarType}\n**Game Price:** ${stats.data[0].price} <:Robux:1241019742131720224>\n**Last updated:** ${time} 🕒\n\n[**Game Link**](https://www.roblox.com/games/${stats.data[0].rootPlaceId})`)
           embed.setColor("#90EE90");
-          embed.setFooter('Made by: bruinebies')
-        loadingMsg.edit(`${universeId}`, { embed: embed });
+          loadingMsg.edit(embed)
       } catch (error) {
         const embed = new MessageEmbed()
           embed.setTitle(`An error has occured!`)
@@ -383,11 +383,11 @@ client2.on("message", async (message) => {
           if (stats.data[0].creator.hasVerifiedBadge === 'false') {
             verified = '<:Verified:1241022678022750220>.';
           }
+           let time = stats.data[0].updated.split("T")[0];
           const embed = new MessageEmbed()
           embed.setTitle(`${stats.data[0].name}'s game stats!\nCreator: ${stats.data[0].creator.type}, ${stats.data[0].creator.name}${verified}`)
-          embed.setDescription(`**Current players:** ${stats.data[0].playing}\n**Current visits:** ${stats.data[0].visits}\n**Favorited Count:** ${stats.data[0].favoritedCount}\n**Avatar Type:** ${stats.data[0].universeAvatarType}\n**Game Price:** ${stats.data[0].price} <:Robux:1241019742131720224>\n\n[**Game Link**](https://www.roblox.com/games/${stats.data[0].rootPlaceId})`)
+          embed.setDescription(`**Current players:** ${stats.data[0].playing}\n**Current visits:** ${stats.data[0].visits}\n**Favorited Count:** ${stats.data[0].favoritedCount}\n**Avatar Type:** ${stats.data[0].universeAvatarType}\n**Game Price:** ${stats.data[0].price} <:Robux:1241019742131720224>\n**Last updated:** ${time} 🕒\n\n[**Game Link**](https://www.roblox.com/games/${stats.data[0].rootPlaceId})`)
           embed.setColor("#90EE90");
-          embed.setFooter('Made by: bruinebies');
           loadingMsg.edit(embed)
         } catch (error) {
           const embed = new MessageEmbed()
