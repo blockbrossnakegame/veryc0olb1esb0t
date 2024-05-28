@@ -344,11 +344,14 @@ client2.on("clickButton", async (button) => {
         const embed = new MessageEmbed()
         embed.setTitle(`${stats.data[0].name}'s game stats!\nCreator: ${stats.data[0].creator.type}, ${stats.data[0].creator.name}${verified}`)
         embed.setDescription(`**Current players:** ${stats.data[0].playing}\n**Current visits:** ${stats.data[0].visits}\n**Favorited Count:** ${stats.data[0].favoritedCount}\n**Avatar Type:** ${stats.data[0].universeAvatarType}\n**Game Price:** ${stats.data[0].price} <:Robux:1241019742131720224>\n**Last updated:** ${time} 🕒`)
+        embed.setColor("#750000");
+        embed.setFooter('Made by: bruinebies')
+        loadingMsg.edit(`${universeId}`, { embed: embed });
       } catch (error) {
         const embed = new MessageEmbed()
-          embed.setTitle(`An error has occured!`)
-            embed.setDescription(`Error while getting data, check if the game id is correct.\nDo **not** use the place id!`)
-            embed.setColor("#750000");
+        embed.setTitle(`An error has occured!`)
+        embed.setDescription(`Error while getting data, check if the game id is correct.\nDo **not** use the place id!`)
+        embed.setColor("#750000");
         embed.setFooter('Made by: bruinebies')
         loadingMsg.edit(`${universeId}`, { embed: embed });
       }
