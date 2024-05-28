@@ -52,7 +52,7 @@ app.get("/beepblock", (req, res) => {
   }
 })
 
-app.get("/currentyplaying", (req, res) => {
+app.get("/currentyplaying", async (req, res) => {
     var id = req.param("id");
     const response = await axios.get(`https://script.google.com/macros/s/AKfycbwiEUeqijQHzmgCPE632qEZhTIbhA1jEsdBWVdv0eol2KIQuLtK2ijb53BB3B4Ka1eURw/exec?UniverseId=${id}`);
     const stats = response.data.response.response;
