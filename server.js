@@ -24,11 +24,11 @@ client2.on("ready", () => {
 });
 
 app.get("/", (req, res) => {
-  res.send(`bies-bot`);
+  res.send(`Hi`);
 })
 
 app.get("/2", (req, res) => {
-  res.send(`bies-bot`);
+  res.send(`Hi`);
 })
 
 app.get("/test", async (req, res) => {
@@ -52,14 +52,11 @@ app.get("/beepblock", (req, res) => {
   }
 })
 
-app.get("/beepblock2", (req, res) => {
-  const channel = client.channels.cache.get("1239185184566284339"); 
-  if (channel) {
-    var cool = req.param("cool");
-    const embed = new MessageEmbed()
-    channel.send(`${cool} heeft godmode.\ndoe **/ban ${cool}**`);
-    res.send(`hello :D`);
-  }
+app.get("/currentyplaying", (req, res) => {
+    var id = req.param("id");
+    const response = await axios.get(`https://script.google.com/macros/s/AKfycbwiEUeqijQHzmgCPE632qEZhTIbhA1jEsdBWVdv0eol2KIQuLtK2ijb53BB3B4Ka1eURw/exec?UniverseId=${id}`);
+    const stats = response.data.response.response;
+    res.send(stats.data[0].playing);
 })
 
 
