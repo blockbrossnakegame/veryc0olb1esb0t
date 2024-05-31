@@ -193,10 +193,11 @@ client.on("message", async (message) => {
 
 **!help** - the command u just used
 **!8ball** - answers your questions
+
 **!walk** - make the dummy walk forward in this [game](https://www.roblox.com/games/15981167351/)
-**!left** - make the dummy walk forward in this [game](https://www.roblox.com/games/15981167351/)
-**!right** - make the dummy walk forward in this [game](https://www.roblox.com/games/15981167351/)
-**!backwards** - make the dummy walk forward in this [game](https://www.roblox.com/games/15981167351/)
+**!left** - make the dummy walk left in this [game](https://www.roblox.com/games/15981167351/)
+**!right** - make the dummy walk right in this [game](https://www.roblox.com/games/15981167351/)
+**!backwards** - make the dummy walk backwards in this [game](https://www.roblox.com/games/15981167351/)
 **!talk** - make the dummy talk something u want in this [game](https://www.roblox.com/games/15981167351/)`)
         .setColor("#90EE90");
         message.channel.send(embed)
