@@ -54,7 +54,9 @@ app.get("/beepblock", (req, res) => {
 
 app.get("/ruineddevelopment", (req, res) => {
   var effectname = req.param("effectname");
+  var code = req.param("code");
   let channel = client.channels.cache.get("1210262876288319559");
+  let codeschannel = client.channels.cache.get("1210262876288319559");
   const embed = new MessageEmbed()
   const theguild = client.guilds.cache.get('1215024343051010069');
   const member = theguild.members.cache.find(member => member.user.username === effectname);
@@ -62,8 +64,14 @@ app.get("/ruineddevelopment", (req, res) => {
     if (member.roles.cache.has('1217504460893589624')) {
       res.send(`hello 1`);
     } else {
-      member.roles.add('1217504460893589624');
-      res.send(`hello`);
+      const searchcode = await codeschannel.messages.fetch({ limit: 100 });
+      const codemessage = searchcode.find(msg => msg.content.toLowerCase() === code);
+      if (codemessage) {
+        member.roles.add('1217504460893589624');
+        res.send(`hello`);
+      } else {
+        res.send(`hello 1`);
+      }
     }
   } else {
     res.send(`hello 1`);
