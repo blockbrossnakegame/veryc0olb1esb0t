@@ -190,7 +190,8 @@ client.on("message", async (message) => {
           }
         }
       }
-      if (command.startsWith("!8ball")) {
+      if (message.channel.id === '1212075960275312640') { 
+        if (command.startsWith("!8ball")) {
         if (command.match("is bruinebies a femboy") || command.match("is bruinebies femboy")) {
           let nicknames = ["🎱no", "🎱no, you idiot", "🎱too lazy to answer"]
           message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
@@ -322,6 +323,7 @@ client.on("message", async (message) => {
         .setTitle(`<:NoSuccess:1236732681828434051> **Command currently for bruinebies and people he gave perms only!**`)
         .setColor("#750000");
         message.channel.send(embed)
+      }
       }
       }
       if(command.startsWith(".msg")) {
