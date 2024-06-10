@@ -68,6 +68,7 @@ app.get("/ruineddevelopment", (req, res) => {
       const codemessage = searchcode.find(msg => msg.content.toLowerCase() === code);
       if (codemessage) {
         member.roles.add('1217504460893589624');
+        codemessage.delete();
         res.send(`hello`);
       } else {
         res.send(`hello 1`);
@@ -88,6 +89,13 @@ client.on("message", async (message) => {
       }
     } else {
     const command = message.content.toLowerCase()
+    if (message.channel.id === '1249440256059506729') { 
+      setTimeout(() => {
+        message.delete().catch(err => {
+          console.error('Failed to delete message:', err);
+        });
+      }, 300000);
+    }
     let role = message.guild.roles.cache.find(
       (role) => role.id === "1182686162108813373"
     );
