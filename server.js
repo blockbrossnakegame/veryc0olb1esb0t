@@ -52,25 +52,25 @@ app.get("/beepblock", (req, res) => {
   }
 })
 
-app.get("/ruineddevelopment", async (req, res) => {
+app.get("/ruineddevelopment", (req, res) => {
   var effectname = req.param("effectname");
   var code = req.param("code");
-  let codeschannel = client.channels.cache.get("1249440256059506729");
+  let channel = client.channels.cache.get("1210262876288319559");
+  let codeschannel = client.channels.cache.get("1210262876288319559");
   const embed = new MessageEmbed()
   const theguild = client.guilds.cache.get('1215024343051010069');
   const member = theguild.members.cache.find(member => member.user.username === effectname);
   if (member) {
     if (member.roles.cache.has('1217504460893589624')) {
-      res.send(`hello 3`);
+      res.send(`hello 1`);
     } else {
       const searchcode = await codeschannel.messages.fetch({ limit: 100 });
       const codemessage = searchcode.find(msg => msg.content.toLowerCase() === code);
       if (codemessage) {
         member.roles.add('1217504460893589624');
-        codemessage.delete();
         res.send(`hello`);
       } else {
-        res.send(`hello 2`);
+        res.send(`hello 1`);
       }
     }
   } else {
@@ -88,13 +88,6 @@ client.on("message", async (message) => {
       }
     } else {
     const command = message.content.toLowerCase()
-    if (message.channel.id === '1249440256059506729') { 
-      setTimeout(() => {
-        message.delete().catch(err => {
-          console.error('Failed to delete message:', err);
-        });
-      }, 300000);
-    }
     let role = message.guild.roles.cache.find(
       (role) => role.id === "1182686162108813373"
     );
