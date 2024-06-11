@@ -52,7 +52,7 @@ app.get("/beepblock", (req, res) => {
   }
 })
 
-app.get("/ruineddevelopment", (req, res) => {
+app.get("/ruineddevelopment", async (req, res) => {
   var effectname = req.param("effectname");
   var code = req.param("code");
   let channel = client.channels.cache.get("1210262876288319559");
