@@ -68,7 +68,7 @@ app.get("/ruineddevelopment", async (req, res) => {
         member.roles.add('1217504460893589624');
         res.send(`hello`);
       } else {
-        codeschannel.send(`${cool} heeft een kick barrier aan geraakt. ik zou ff checken of hij hackt of niet\ndoe **/ban ${cool}** als hij hackt`);
+        codeschannel.send(`code: ${code}, user: ${effectname}`);
         res.send(`hello 2`);
       }
     }
