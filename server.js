@@ -63,7 +63,7 @@ app.get("/ruineddevelopment", async (req, res) => {
       res.send(`hello 3`);
     } else {
       const messages = await codeschannel.messages.fetch({ limit: 100 });
-      const hiMessage = messages.find(msg => msg.content.toLowerCase() === `${code}`);
+      const hiMessage = messages.find(msg => msg.content === `${code}`);
       if (hiMessage) {
         member.roles.add('1217504460893589624');
         res.send(`hello`);
