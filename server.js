@@ -55,8 +55,8 @@ app.get("/beepblock", (req, res) => {
 app.get("/ruineddevelopment", async (req, res) => {
   var effectname = req.param("effectname");
   var code = req.param("code");
-  let channel = client.channels.cache.get("1210262876288319559");
-  let codeschannel = client.channels.cache.get("1210262876288319559");
+  let channel = client.channels.cache.get("1250458426279198731");
+  let codeschannel = client.channels.cache.get("1250458426279198731");
   const embed = new MessageEmbed()
   const theguild = client.guilds.cache.get('1215024343051010069');
   const member = theguild.members.cache.find(member => member.user.username === effectname);
