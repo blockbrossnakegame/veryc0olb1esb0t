@@ -477,6 +477,13 @@ client3.on("message", async (message) => {
         `You can not be harassing people here buddy. <@${message.author.id}>`
       );
     }
+    if(command.startsWith(".msg")) {
+        if(message.author.id === ("904076782666391583")) {
+          message.delete()
+          var text = message.content.split(' ').slice(1).join(' ')
+          message.channel.send(text)
+        }
+      }
   }
 })
 
