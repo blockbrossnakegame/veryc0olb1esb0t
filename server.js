@@ -509,6 +509,6 @@ client.on("messageDelete", async (deletedMessage) => {
   }
 });
 
-client3.login(process.env.token2);
+client3.login(process.env.token3);
 client2.login(process.env.token2);
 client.login(process.env.token);
