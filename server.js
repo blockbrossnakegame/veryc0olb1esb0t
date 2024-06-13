@@ -1,6 +1,7 @@
 let Discord = require("discord.js");
 let client = new Discord.Client();
 let client2 = new Discord.Client();
+let client3 = new Discord.Client();
 let { MessageEmbed } = require("discord.js");
 const express = require("express");
 const app = express();
@@ -55,8 +56,8 @@ app.get("/beepblock", (req, res) => {
 app.get("/ruineddevelopment", async (req, res) => {
   var effectname = req.param("effectname");
   var code = req.param("code");
-  let codeschannel = client.channels.cache.get("1250458426279198731");
-  const theguild = client.guilds.cache.get('1215024343051010069');
+  let codeschannel = client3.channels.cache.get("1250458426279198731");
+  const theguild = client3.guilds.cache.get('1215024343051010069');
   const member = theguild.members.cache.find(member => member.user.username === effectname);
   if (member) {
     if (member.roles.cache.has('1217504460893589624')) {
@@ -134,7 +135,7 @@ client.on("message", async (message) => {
     if (command.match("nigger") || command.match("nigga")) {
       message.delete();
       message.channel.send(
-        `You can not be harassing people here buddy. <@${message.author.id}>`
+         `You can not be saying the n word to people here buddy. <@${message.author.id}>`
       );
     }
     if (command.match("faggot")) {
@@ -425,6 +426,60 @@ client2.on("message", async (message) => {
   }
 });
 
+client3.on("message", async (message) => {
+  if (message.author.bot) {
+  } else {
+    const command = message.content.toLowerCase()
+    if (command.match(/https?:\/\/\S+/) && !command.match("https://tenor.com/view/")) {
+      if (message.guild.id === '1115963224462999613') {
+        if (message.channelId === "1182414660855672953" || message.channelId === "1182059785768677478") {
+        } else {
+          if (message.member.roles.cache.some(role => role.id === allowedRole) || (message.member.roles.cache.some(role => role.id === owner)) || (message.member.roles.cache.some(role => role.id === imagepermsRuined))) {
+          } else {
+            message.delete();
+            message.channel.send(
+            `You can not send links here buddy. <@${message.author.id}>`
+            );
+          }
+        }
+      }
+    }
+    if (command.match("discord.gg")) {
+      if (message.channelId === "1182414660855672953") {
+      } else {
+        message.delete();
+        message.channel.send(
+          `You can not send invites here buddy. <@${message.author.id}>`
+        );
+      }
+    }
+    if (command.match("cunt")) {
+      message.delete();
+      message.channel.send(
+        `You can not be harassing people here buddy. <@${message.author.id}>`
+      );
+    }
+    if (command.match("faggot")) {
+      message.delete();
+      message.channel.send(
+        `You can not be harassing people here buddy. <@${message.author.id}>`
+      );
+    }
+    if (command.match("nigger") || command.match("nigga")) {
+      message.delete();
+      message.channel.send(
+        `You can not be saying the n word to people here buddy. <@${message.author.id}>`
+      );
+    }
+    if (command.match("faggot")) {
+      message.delete();
+      message.channel.send(
+        `You can not be harassing people here buddy. <@${message.author.id}>`
+      );
+    }
+  }
+})
+
 client.on("messageUpdate", async (oldMessage, newMessage) => {
   if (newMessage.author.bot) return;
   const channel = client.channels.cache.get("1225151478839119902"); 
@@ -454,5 +509,6 @@ client.on("messageDelete", async (deletedMessage) => {
   }
 });
 
+client3.login(process.env.token2);
 client2.login(process.env.token2);
 client.login(process.env.token);
