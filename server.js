@@ -24,6 +24,11 @@ client2.on("ready", () => {
   client2.user.setActivity("some game stats.", { type: "WATCHING" });
 });
 
+client3.on("ready", () => {
+  client3.user.setActivity("Beep block!", { type: "PLAYING" });
+});
+
+
 app.get("/", (req, res) => {
   res.send(`Hi`);
 })
