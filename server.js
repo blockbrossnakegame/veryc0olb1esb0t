@@ -295,12 +295,12 @@ client.on("message", async (message) => {
         }
       }
       if(command.startsWith("!talk")) {
-        if(message.member.roles.cache.some(role => role.id === 1238443072241537066) || message.author.id === ("904076782666391583") || message.author.id === ("1017921613913657364")  || message.author.id === ("881275610180251688" || message.author.id === ("1181201860196040735")) ) {
+        if(message.member.roles.cache.some(role => role.id === 1238443072241537066) || message.author.id === ("904076782666391583")) {
         const channel = client.channels.cache.get("1232077870432522371");
         const themessage = await channel.messages.fetch('1236313294873296907');
         const wordToRemove = themessage.content.split(' ')[4];
         const wordtoadd = message.content.split(' ')[1];
-        if (wordtoadd.toLowerCase().match("discord.gg") || wordtoadd.toLowerCase().match("bitch") || wordtoadd.toLowerCase().match("daddy") || wordtoadd.toLowerCase().match("harder") || wordtoadd.toLowerCase().match("porn") || wordtoadd.toLowerCase().match("negro") || wordtoadd.toLowerCase().match("fuck") || wordtoadd.toLowerCase().match("nigger") || wordtoadd.toLowerCase().match("cunt") || wordtoadd.toLowerCase().match("faggot") || wordtoadd.toLowerCase().match("gay") || wordtoadd.toLowerCase().match("sex")) {
+        if (wordtoadd.toLowerCase().match("discord.gg") || wordtoadd.toLowerCase().match("bitch") || wordtoadd.toLowerCase().match("daddy") || wordtoadd.toLowerCase().match("harder")  || wordtoadd.toLowerCase().match("cum")  || wordtoadd.toLowerCase().match("bust") || wordtoadd.toLowerCase().match("porn") || wordtoadd.toLowerCase().match("negro") || wordtoadd.toLowerCase().match("fuck") || wordtoadd.toLowerCase().match("nigger") || wordtoadd.toLowerCase().match("cunt") || wordtoadd.toLowerCase().match("faggot") || wordtoadd.toLowerCase().match("gay") || wordtoadd.toLowerCase().match("sex")) {
           const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` #####`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
