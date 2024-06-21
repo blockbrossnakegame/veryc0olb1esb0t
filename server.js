@@ -295,12 +295,11 @@ client.on("message", async (message) => {
         }
       }
       if(command.startsWith("!talk")) {
-        if(message.member.roles.cache.some(role => role.id === 1238443072241537066) || message.author.id === ("904076782666391583")) {
         const channel = client.channels.cache.get("1232077870432522371");
         const themessage = await channel.messages.fetch('1236313294873296907');
         const wordToRemove = themessage.content.split(' ')[4];
         const wordtoadd = message.content.split(' ')[1];
-        if (wordtoadd.toLowerCase().match("discord.gg") || wordtoadd.toLowerCase().match("bitch") || wordtoadd.toLowerCase().match("daddy") || wordtoadd.toLowerCase().match("harder")  || wordtoadd.toLowerCase().match("cum")  || wordtoadd.toLowerCase().match("bust") || wordtoadd.toLowerCase().match("porn") || wordtoadd.toLowerCase().match("negro") || wordtoadd.toLowerCase().match("fuck") || wordtoadd.toLowerCase().match("nigger") || wordtoadd.toLowerCase().match("cunt") || wordtoadd.toLowerCase().match("faggot") || wordtoadd.toLowerCase().match("gay") || wordtoadd.toLowerCase().match("sex")) {
+        if (wordtoadd.toLowerCase().match("discord.gg") || wordtoadd.toLowerCase().match("gyat") || wordtoadd.toLowerCase().match("negro") || wordtoadd.toLowerCase().match("sex") || wordtoadd.toLowerCase().match("bitch") || wordtoadd.toLowerCase().match("daddy") || wordtoadd.toLowerCase().match("harder")  || wordtoadd.toLowerCase().match("cum")  || wordtoadd.toLowerCase().match("bust") || wordtoadd.toLowerCase().match("porn") || wordtoadd.toLowerCase().match("negro") || wordtoadd.toLowerCase().match("fuck") || wordtoadd.toLowerCase().match("nigger") || wordtoadd.toLowerCase().match("cunt") || wordtoadd.toLowerCase().match("faggot") || wordtoadd.toLowerCase().match("gay") || wordtoadd.toLowerCase().match("sex")) {
           const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` #####`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
@@ -315,12 +314,6 @@ client.on("message", async (message) => {
           .setColor("#90EE90");
           message.channel.send(embed)
         }
-      } else {
-        const embed = new MessageEmbed()
-        .setTitle(`<:NoSuccess:1236732681828434051> **Command currently for bruinebies and people he gave perms only!**`)
-        .setColor("#750000");
-        message.channel.send(embed)
-      }
       }
       }
       if(command.startsWith(".msg")) {
