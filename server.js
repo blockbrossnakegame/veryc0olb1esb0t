@@ -48,6 +48,17 @@ app.get("/test", async (req, res) => {
     }
 })
 
+app.get("/test/2", async (req, res) => {
+  const channel = client.channels.cache.get("1232077870432522371");
+  const themessage = await channel.messages.fetch('1236313294873296907');
+  if (themessage) {
+    const wordToRemove = themessage.content.split(' ')[4];
+    const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` no`);
+    themessage.edit(updatedWords);
+  }
+  res.send(`ok`);
+})
+
 app.get("/beepblock", (req, res) => {
   const channel = client.channels.cache.get("1239185184566284339"); 
   if (channel) {
@@ -294,23 +305,15 @@ client.on("message", async (message) => {
           message.channel.send(embed)
         }
       }
-      if(command.startsWith("!talk")) {
+      if (message.content.startsWith("!eat")) {
         const channel = client.channels.cache.get("1232077870432522371");
         const themessage = await channel.messages.fetch('1236313294873296907');
-        const wordToRemove = themessage.content.split(' ')[4];
-        const wordtoadd = message.content.split(' ')[1];
-        if (wordtoadd.toLowerCase().match("discord.gg") || wordtoadd.toLowerCase().match("boob") || wordtoadd.toLowerCase().match("tits") || wordtoadd.toLowerCase().match("milkies") || wordtoadd.toLowerCase().match("gyat") || wordtoadd.toLowerCase().match("negro") || wordtoadd.toLowerCase().match("sex") || wordtoadd.toLowerCase().match("bitch") || wordtoadd.toLowerCase().match("daddy") || wordtoadd.toLowerCase().match("harder")  || wordtoadd.toLowerCase().match("cum")  || wordtoadd.toLowerCase().match("bust") || wordtoadd.toLowerCase().match("porn") || wordtoadd.toLowerCase().match("negro") || wordtoadd.toLowerCase().match("fuck") || wordtoadd.toLowerCase().match("nigger") || wordtoadd.toLowerCase().match("cunt") || wordtoadd.toLowerCase().match("faggot") || wordtoadd.toLowerCase().match("gay") || wordtoadd.toLowerCase().match("sex")) {
-          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` #####`);
+        if (themessage) {
+          const wordToRemove = themessage.content.split(' ')[4];
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
-          .setTitle(`<:NoSuccess:1236732681828434051> **Chat message is censored!**`)
-          .setColor("#750000");
-          message.channel.send(embed)
-        } else {
-          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${wordtoadd}`);
-          themessage.edit(updatedWords);
-          const embed = new MessageEmbed()
-          .setTitle(`<:Success:1236732463309656096> **Chat message has been updated in-game!**`)
+          .setTitle(`**<:Success:1236732463309656096> Player is eating!**`)
           .setColor("#90EE90");
           message.channel.send(embed)
         }
