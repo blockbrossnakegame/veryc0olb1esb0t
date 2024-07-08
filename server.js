@@ -360,6 +360,19 @@ client.on("message", async (message) => {
           }
         }
       }
+      if (message.content.startsWith("!addvalue")) {
+        if(message.author.id === ("904076782666391583")) {
+          const channel = client.channels.cache.get("1232077870432522371");
+          const themessage = await channel.messages.fetch('1236313294873296907');
+          if (themessage) {
+            themessage.edit(`${themessage.content} yes`);
+            const embed = new MessageEmbed()
+            .setTitle(`**<:Success:1236732463309656096> A new value has been added to the data.**`)
+            .setColor("#90EE90");
+            message.channel.send(embed)
+          }
+        }
+      }
       }
       if(command.startsWith(".msg")) {
         if(message.author.id === ("904076782666391583")) {
