@@ -232,7 +232,7 @@ client.on("message", async (message) => {
         const themessage = await channel.messages.fetch('1236313294873296907');
         if (themessage) {
           const wordToRemove = themessage.content.split(' ')[1];
-          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) + 1}`);
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) + 2}`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
           .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
@@ -245,7 +245,7 @@ client.on("message", async (message) => {
         const themessage = await channel.messages.fetch('1236313294873296907');
         if (themessage) {
           const wordToRemove = themessage.content.split(' ')[1];
-          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) - 1}`);
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) - 2}`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
           .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
@@ -258,7 +258,7 @@ client.on("message", async (message) => {
         const themessage = await channel.messages.fetch('1236313294873296907');
         if (themessage) {
           const wordToRemove = themessage.content.split(' ')[3];
-          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) + 1}`);
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) + 2}`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
           .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
@@ -271,7 +271,7 @@ client.on("message", async (message) => {
         const themessage = await channel.messages.fetch('1236313294873296907');
         if (themessage) {
           const wordToRemove = themessage.content.split(' ')[3];
-          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) - 1}`);
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` ${parseInt(wordToRemove) - 2}`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
           .setTitle(`<:Success:1236732463309656096> **Position has updated in-game!**`)
@@ -313,9 +313,27 @@ client.on("message", async (message) => {
           const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
-          .setTitle(`**<:Success:1236732463309656096> Player is eating!**`)
+          .setTitle(`**<:Success:1236732463309656096> Player action has been updated in-game!**`)
           .setColor("#90EE90");
           message.channel.send(embed)
+        }
+      }
+      if (message.content.startsWith("!reset_data")) {
+        if(message.author.id === ("904076782666391583")) {
+          const channel = client.channels.cache.get("1232077870432522371");
+          const themessage = await channel.messages.fetch('1236313294873296907');
+          if (themessage) {
+            const wordToRemove1 = themessage.content.split(' ')[1];
+            const updatedWords1 = themessage.content.replace(` ${wordToRemove1}`, ` 0`);
+            const wordToRemove2 = themessage.content.split(' ')[3];
+            const updatedWords2 = themessage.content.replace(` ${wordToRemove2}`, ` 0`);
+            themessage.edit(updatedWords1);
+            themessage.edit(updatedWords2);
+            const embed = new MessageEmbed()
+            .setTitle(`**<:Success:1236732463309656096> Player data has been reset in-game!**`)
+            .setColor("#90EE90");
+            message.channel.send(embed)
+          }
         }
       }
       }
