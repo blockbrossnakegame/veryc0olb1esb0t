@@ -324,7 +324,7 @@ client.on("message", async (message) => {
           const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
-          .setTitle(`**<:Success:1236732463309656096> Player action has been updated in-game!**`)
+          .setTitle(`**<:Success:1236732463309656096> Player action [Eating] has been updated in-game!**`)
           .setColor("#90EE90");
           message.channel.send(embed)
         }
@@ -337,7 +337,7 @@ client.on("message", async (message) => {
           const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
-          .setTitle(`**<:Success:1236732463309656096> Player action has been updated in-game!**`)
+          .setTitle(`**<:Success:1236732463309656096> Player action [Attacking] has been updated in-game!**`)
           .setColor("#90EE90");
           message.channel.send(embed)
         }
