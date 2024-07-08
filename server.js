@@ -59,6 +59,17 @@ app.get("/test/2", async (req, res) => {
   res.send(`ok`);
 })
 
+app.get("/test/3", async (req, res) => {
+  const channel = client.channels.cache.get("1232077870432522371");
+  const themessage = await channel.messages.fetch('1236313294873296907');
+  if (themessage) {
+    const wordToRemove = themessage.content.split(' ')[6];
+    const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` no`);
+    themessage.edit(updatedWords);
+  }
+  res.send(`ok`);
+})
+
 app.get("/beepblock", (req, res) => {
   const channel = client.channels.cache.get("1239185184566284339"); 
   if (channel) {
@@ -310,6 +321,19 @@ client.on("message", async (message) => {
         const themessage = await channel.messages.fetch('1236313294873296907');
         if (themessage) {
           const wordToRemove = themessage.content.split(' ')[4];
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes`);
+          themessage.edit(updatedWords);
+          const embed = new MessageEmbed()
+          .setTitle(`**<:Success:1236732463309656096> Player action has been updated in-game!**`)
+          .setColor("#90EE90");
+          message.channel.send(embed)
+        }
+      }
+      if (message.content.startsWith("!attack")) {
+        const channel = client.channels.cache.get("1232077870432522371");
+        const themessage = await channel.messages.fetch('1236313294873296907');
+        if (themessage) {
+          const wordToRemove = themessage.content.split(' ')[6];
           const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
