@@ -53,7 +53,7 @@ app.get("/test/2", async (req, res) => {
   const themessage = await channel.messages.fetch('1236313294873296907');
   if (themessage) {
     const wordToRemove = themessage.content.split(' ')[4];
-    const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` no`);
+    const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` no4`);
     themessage.edit(updatedWords);
   }
   res.send(`ok`);
@@ -64,7 +64,7 @@ app.get("/test/3", async (req, res) => {
   const themessage = await channel.messages.fetch('1236313294873296907');
   if (themessage) {
     const wordToRemove = themessage.content.split(' ')[6];
-    const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` no`);
+    const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` no6`);
     themessage.edit(updatedWords);
   }
   res.send(`ok`);
@@ -295,7 +295,7 @@ client.on("message", async (message) => {
         const themessage = await channel.messages.fetch('1236313294873296907');
         if (themessage) {
           const wordToRemove = themessage.content.split(' ')[5];
-          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes`);
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes5`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
           .setTitle(`<:Success:1236732463309656096> **Animation has updated in-game!**`)
@@ -308,7 +308,7 @@ client.on("message", async (message) => {
         const themessage = await channel.messages.fetch('1236313294873296907');
         if (themessage) {
           const wordToRemove = themessage.content.split(' ')[5];
-          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` no`);
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` no5`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
           .setTitle(`**<:Success:1236732463309656096> Animation has updated in-game!**`)
@@ -321,7 +321,7 @@ client.on("message", async (message) => {
         const themessage = await channel.messages.fetch('1236313294873296907');
         if (themessage) {
           const wordToRemove = themessage.content.split(' ')[4];
-          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes`);
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes4`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
           .setTitle(`**<:Success:1236732463309656096> Player action [Eating] has been updated in-game!**`)
@@ -334,7 +334,7 @@ client.on("message", async (message) => {
         const themessage = await channel.messages.fetch('1236313294873296907');
         if (themessage) {
           const wordToRemove = themessage.content.split(' ')[6];
-          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes`);
+          const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes6`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
           .setTitle(`**<:Success:1236732463309656096> Player action [Attacking] has been updated in-game!**`)
