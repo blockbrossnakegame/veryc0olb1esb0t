@@ -531,12 +531,18 @@ client3.on("message", async (message) => {
           message.delete()
           const link =  message.content.split(' ')[1];
           const imagelink = message.content.split(' ')[2];
-          const embed = new MessageEmbed()
-          .setTitle(`**A new ugc has been published!**`)
-          .setURL(link)
-          .setImage(imagelink)
-          .setColor("#860cc3");
-          message.channel.send(`<@&1254080486574264452>` , { embed: embed })
+          if (link && imagelink) {
+            const ugcname =  message.content.split('/')[5];
+            const embed = new MessageEmbed()
+            .setTitle(`**A new ugc has been published!**`)
+            .setDescription(`${ugcname}` is now on the catalog!)
+            .setURL(link)
+            .setImage(imagelink)
+            .setColor("#860cc3");
+            message.channel.send(`<@&1254080486574264452>` , { embed: embed })
+          } else {
+            message.channel.send(`You forgot to put the link of the item or image link in the message`)
+          }
         }
       }
   }
