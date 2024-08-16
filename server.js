@@ -529,8 +529,8 @@ client3.on("message", async (message) => {
     if(command.startsWith(".ugcping")) {
         if(message.author.id === ("904076782666391583")) {
           message.delete()
-          const link =  themessage.content.split(' ')[1];
-          const imagelink = themessage.content.split(' ')[2];
+          const link =  message.content.split(' ')[1];
+          const imagelink = message.content.split(' ')[2];
           const embed = new MessageEmbed()
           .setTitle(`**A new ugc has been published!**`)
           .setURL(link)
