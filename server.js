@@ -96,7 +96,6 @@ app.get("/ruineddevelopment", async (req, res) => {
         member.roles.add('1217504460893589624');
         res.send(`hello`);
       } else {
-        codeschannel.send(`code: ${code}, user: ${effectname}`);
         res.send(`hello 2`);
       }
     }
@@ -159,23 +158,18 @@ client.on("message", async (message) => {
         `You can not be harassing people here buddy. <@${message.author.id}>`
       );
     }
-    if (command.match("nigger") || command.match("nigga")) {
+    if (command.match("nigger") || command.match("nigga") || command.match("negro") command.match("njgga") || command.match("njgger")) {
       message.delete();
       message.channel.send(
-         `You can not be saying the n word to people here buddy. <@${message.author.id}>`
+         `You can not be saying the n-word to people here buddy. <@${message.author.id}>`
       );
+      message.member.roles.add('1237388503243821056');
     }
     if (command.match("faggot")) {
       message.delete();
       message.channel.send(
         `You can not be harassing people here buddy. <@${message.author.id}>`
       );
-    }
-    if (command.match("is zero a femboy")) {
-      message.channel.send(
-        `Yes, yes zero is.`
-      );
-      message.react('👍')
     }
     if (command.startsWith("!kick")) {
       if (message.member.hasPermission('KICK_MEMBERS')) {
@@ -211,16 +205,8 @@ client.on("message", async (message) => {
       }
       if (message.channel.id === '1212075960275312640') { 
         if (command.startsWith("!8ball")) {
-        if (command.match("is bruinebies a femboy") || command.match("is bruinebies femboy")) {
-          let nicknames = ["🎱no", "🎱no, you idiot", "🎱too lazy to answer"]
-          message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
-        } else if (command.match("is zero a femboy") || command.match("is zero femboy")) {
-          let nicknames = ["🎱 yes", "🎱 yes r u that dumb?", "🎱too lazy to answer"]
-          message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
-        } else {
           let nicknames = ["🎱 yes", "🎱 no", "🎱 yes r u that dumb?", "🎱no, you idiot", "🎱idk why do you ask me?", "🎱too lazy to answer"]
           message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
-        }
       }
       if (command.startsWith("!help")) {
         const embed = new MessageEmbed()
@@ -230,11 +216,11 @@ client.on("message", async (message) => {
 **!help** - the command u just used
 **!8ball** - answers your questions
 
-**!walk** - make the dummy walk forward in this [game](https://www.roblox.com/games/15981167351/)
-**!left** - make the dummy walk left in this [game](https://www.roblox.com/games/15981167351/)
-**!right** - make the dummy walk right in this [game](https://www.roblox.com/games/15981167351/)
-**!backwards** - make the dummy walk backwards in this [game](https://www.roblox.com/games/15981167351/)
-**!talk** - make the dummy talk something u want in this [game](https://www.roblox.com/games/15981167351/)`)
+**!walk** - make the dummy walk forward in this [game](https://www.roblox.com/games/13923308011/)
+**!left** - make the dummy walk left in this [game](https://www.roblox.com/games/13923308011/)
+**!right** - make the dummy walk right in this [game](https://www.roblox.com/games/13923308011/)
+**!backwards** - make the dummy walk backwards in this [game](https://www.roblox.com/games/13923308011/)
+**!talk** - make the dummy talk something u want in this [game](https://www.roblox.com/games/13923308011/)`)
         .setColor("#90EE90");
         message.channel.send(embed)
       }
@@ -324,7 +310,7 @@ client.on("message", async (message) => {
           const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes4`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
-          .setTitle(`**<:Success:1236732463309656096> Player action [Eating] has been updated in-game!**`)
+          .setTitle(`**<:Success:1236732463309656096> Player action has been updated in-game!**`)
           .setColor("#90EE90");
           message.channel.send(embed)
         }
@@ -337,7 +323,7 @@ client.on("message", async (message) => {
           const updatedWords = themessage.content.replace(` ${wordToRemove}`, ` yes6`);
           themessage.edit(updatedWords);
           const embed = new MessageEmbed()
-          .setTitle(`**<:Success:1236732463309656096> Player action [Attacking] has been updated in-game!**`)
+          .setTitle(`**<:Success:1236732463309656096> Player action has been updated in-game!**`)
           .setColor("#90EE90");
           message.channel.send(embed)
         }
@@ -538,6 +524,19 @@ client3.on("message", async (message) => {
           message.delete()
           var text = message.content.split(' ').slice(1).join(' ')
           message.channel.send(text)
+        }
+      }
+    if(command.startsWith(".ugcping")) {
+        if(message.author.id === ("904076782666391583")) {
+          message.delete()
+          const link =  themessage.content.split(' ')[1];
+          const imagelink = themessage.content.split(' ')[2];
+          const embed = new MessageEmbed()
+          .setTitle(`**A new ugc has been published!**`)
+          .setURL(link)
+          .setImage(imagelink)
+          .setColor("#860cc3");
+          message.channel.send(`<@&1254080486574264452>` , { embed: embed })
         }
       }
   }
