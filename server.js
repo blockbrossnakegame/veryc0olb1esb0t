@@ -535,7 +535,7 @@ client3.on("message", async (message) => {
             const ugcname =  message.content.split('/')[5];
             const embed = new MessageEmbed()
             .setTitle(`**A new ugc has been published!**`)
-            .setDescription(`${ugcname}` is now on the catalog!)
+            .setDescription(`${ugcname}` is now on the catalog!`)
             .setURL(link)
             .setImage(imagelink)
             .setColor("#860cc3");
