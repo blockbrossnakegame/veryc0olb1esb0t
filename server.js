@@ -158,7 +158,7 @@ client.on("message", async (message) => {
         `You can not be harassing people here buddy. <@${message.author.id}>`
       );
     }
-    if (command.match("nigger") || command.match("nigga") || command.match("negro") command.match("njgga") || command.match("njgger")) {
+    if (command.match("nigger") || command.match("nigga") || command.match("negro") || command.match("njgga") || command.match("njgger")) {
       message.delete();
       message.channel.send(
          `You can not be saying the n-word to people here buddy. <@${message.author.id}>`
