@@ -37,6 +37,10 @@ app.get("/2", (req, res) => {
   res.send(`Hi`);
 })
 
+app.get("/3", (req, res) => {
+  res.sendFile('/index.html');
+})
+
 app.get("/test", async (req, res) => {
     const channel = client.channels.cache.get("1232077870432522371")
     const themessage = await channel.messages.fetch('1236313294873296907')
