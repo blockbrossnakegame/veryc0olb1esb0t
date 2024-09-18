@@ -10,6 +10,7 @@ const allowedRole = '1208186017337581699';
 const owner = '1115992837775953951';
 const imagepermsRuined = '1115992837775953951';
 const disbut = require('discord-buttons');
+
 disbut(client2);
 
 app.listen(3000, () => {
@@ -38,7 +39,7 @@ app.get("/2", (req, res) => {
 })
 
 app.get("/3", (req, res) => {
-  res.sendFile('/index.html');
+  res.sendFile(_dirman + '/index.html');
 })
 
 app.get("/test", async (req, res) => {
