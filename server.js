@@ -12,7 +12,6 @@ const imagepermsRuined = '1115992837775953951';
 const disbut = require('discord-buttons');
 
 disbut(client2);
-const path = require('path');
 
 app.listen(3000, () => {
   console.log("Bies-bot is waking up.");
