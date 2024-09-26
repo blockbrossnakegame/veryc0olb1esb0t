@@ -12,6 +12,7 @@ const imagepermsRuined = '1115992837775953951';
 const disbut = require('discord-buttons');
 
 disbut(client2);
+const path = require('path');
 
 app.listen(3000, () => {
   console.log("Bies-bot is waking up.");
@@ -30,9 +31,9 @@ client3.on("ready", () => {
 });
 
 
-app.get("/", (req, res) => {
-  res.send(`Hi`);
-})
+app.get('/', (req, res) => {
+    res.sendFile('epic.html');
+});
 
 app.get("/2", (req, res) => {
   res.send(`Hi`);
