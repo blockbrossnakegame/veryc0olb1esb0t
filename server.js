@@ -13,9 +13,6 @@ const disbut = require('discord-buttons');
 
 disbut(client2);
 
-app.use(express.static(__dirname + '/View'));
-app.use(express.static(__dirname + '/Script'));
-
 app.listen(3000, () => {
   console.log("Bies-bot is waking up.");
 })
