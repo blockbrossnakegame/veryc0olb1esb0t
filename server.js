@@ -31,7 +31,7 @@ client3.on("ready", () => {
 
 
 app.get('/', (req, res) => {
-    res.sendFile('/epic.html');
+    res.sendFile('epic.html');
 });
 
 app.get("/2", (req, res) => {
@@ -39,7 +39,7 @@ app.get("/2", (req, res) => {
 })
 
 app.get("/3", (req, res) => {
-  res.sendFile(_dirman + '/index.html');
+  res.sendFile(_dirman + 'index.html');
 })
 
 app.get("/test", async (req, res) => {
