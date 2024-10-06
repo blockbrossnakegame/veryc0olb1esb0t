@@ -163,6 +163,13 @@ client.on("message", async (message) => {
         `You can not be harassing people here buddy. <@${message.author.id}>`
       );
     }
+    if (message.content.startsWith("group")) {
+      message.channel.send(
+        `If you get a error that you need to join the 'Trappers VS Runners' then you have:
+        Not joined any group or joined the wrong group.
+        This is the right group: https://www.roblox.com/groups/34857249/Trappers-VS-Runners#!/about`
+      );
+    }
     if (command.match("nigger") || command.match("nigga") || command.match("negro") || command.match("njgga") || command.match("njgger")) {
       message.delete();
       message.channel.send(
