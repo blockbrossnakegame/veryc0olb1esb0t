@@ -163,7 +163,7 @@ client.on("message", async (message) => {
         `You can not be harassing people here buddy. <@${message.author.id}>`
       );
     }
-    if (message.content.match("ugc") &&& message.content.match("cant")) {
+    if (message.content.match("ugc") && message.content.match("cant")) {
       message.channel.send(
         `If you can not claim the free UGC then you have:
         Not completed all the tasks,
@@ -171,7 +171,7 @@ client.on("message", async (message) => {
         
         This is the right group: https://www.roblox.com/groups/34857249/Trappers-VS-Runners#!/about`
       );
-    } else if (message.content.match("ugc") &&& message.content.match("can't")) {
+    } else if (message.content.match("ugc") && message.content.match("can't")) {
       message.channel.send(
         `If you can not claim the free UGC then you have:
         Not completed all the tasks,
@@ -179,7 +179,7 @@ client.on("message", async (message) => {
         
         This is the right group: https://www.roblox.com/groups/34857249/Trappers-VS-Runners#!/about`
       );
-    } else if (message.content.match("ugc") &&& message.content.match("can not")) {
+    } else if (message.content.match("ugc") && message.content.match("can not")) {
       message.channel.send(
         `If you can not claim the free UGC then you have:
         Not completed all the tasks,
