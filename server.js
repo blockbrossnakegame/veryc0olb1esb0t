@@ -31,7 +31,7 @@ client3.on("ready", () => {
 
 
 app.get('/', (req, res) => {
-    res.sendFile('epic.html');
+     res.send(`Hi`);
 });
 
 app.get("/2", (req, res) => {
