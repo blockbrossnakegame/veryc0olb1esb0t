@@ -163,10 +163,20 @@ client.on("message", async (message) => {
         `You can not be harassing people here buddy. <@${message.author.id}>`
       );
     }
-    if (message.content.startsWith("group")) {
+    if (message.content.match("ugc") &&& message.content.match("cant")) {
       message.channel.send(
-        `If you get a error that you need to join the 'Trappers VS Runners' then you have:
-        Not joined any group or joined the wrong group.
+        `If you can not claim the free UGC then you have:
+        Not completed all the tasks,
+        Or not joined the right group,
+        
+        This is the right group: https://www.roblox.com/groups/34857249/Trappers-VS-Runners#!/about`
+      );
+    } else if (message.content.match("ugc") &&& message.content.match("can't")) {
+      message.channel.send(
+        `If you can not claim the free UGC then you have:
+        Not completed all the tasks,
+        Or not joined the right group,
+        
         This is the right group: https://www.roblox.com/groups/34857249/Trappers-VS-Runners#!/about`
       );
     }
