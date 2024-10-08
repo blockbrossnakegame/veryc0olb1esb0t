@@ -164,28 +164,16 @@ client.on("message", async (message) => {
       );
     }
     if (message.content.match("ugc") && message.content.match("cant")) {
-      message.channel.send(
-        `If you can not claim the free UGC then you have:
-        Not completed all the tasks,
-        Or not joined the right group,
-        
-        This is the right group: https://www.roblox.com/groups/34857249/Trappers-VS-Runners#!/about`
+       message.channel.send(
+        `If you can not claim the free UGC then you have:\nNot completed all the tasks,\nOr not joined the right group,\n\nThis is the right group: https://www.roblox.com/groups/34857249/Trappers-VS-Runners#!/about`
       );
     } else if (message.content.match("ugc") && message.content.match("can't")) {
       message.channel.send(
-        `If you can not claim the free UGC then you have:
-        Not completed all the tasks,
-        Or not joined the right group,
-        
-        This is the right group: https://www.roblox.com/groups/34857249/Trappers-VS-Runners#!/about`
+        `If you can not claim the free UGC then you have:\nNot completed all the tasks,\nOr not joined the right group,\n\nThis is the right group: https://www.roblox.com/groups/34857249/Trappers-VS-Runners#!/about`
       );
     } else if (message.content.match("ugc") && message.content.match("can not")) {
       message.channel.send(
-        `If you can not claim the free UGC then you have:
-        Not completed all the tasks,
-        Or not joined the right group,
-        
-        This is the right group: https://www.roblox.com/groups/34857249/Trappers-VS-Runners#!/about`
+        `If you can not claim the free UGC then you have:\nNot completed all the tasks,\nOr not joined the right group,\n\nThis is the right group: https://www.roblox.com/groups/34857249/Trappers-VS-Runners#!/about`
       );
     }
     if (command.match("nigger") || command.match("nigga") || command.match("negro") || command.match("njgga") || command.match("njgger")) {
