@@ -39,7 +39,7 @@ app.get("/2", (req, res) => {
 })
 
 app.get("/3", (req, res) => {
-  res.sendFile(_dirman + 'index.html');
+  res.sendFile(__dirman + 'index.html');
 })
 
 app.get("/test", async (req, res) => {
