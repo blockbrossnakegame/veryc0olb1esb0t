@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
      res.send(`Hi`);
 });
 
-app.get("/3", (req, res) => {
+app.get("/2", (req, res) => {
   res.sendFile(__dirman + 'index.html');
 })
 
