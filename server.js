@@ -76,12 +76,22 @@ app.get("/test/3", async (req, res) => {
 })
 
 app.get("/beepblock", (req, res) => {
-  const channel = client.channels.cache.get("1239185184566284339"); 
+  const channel = client3.channels.cache.get("1239185184566284339"); 
   if (channel) {
     var cool = req.param("cool");
     const embed = new MessageEmbed()
     channel.send(`${cool} heeft een kick barrier aan geraakt. ik zou ff checken of hij hackt of niet\ndoe **/ban ${cool}** als hij hackt`);
     res.send(`hello :D`);
+  }
+})
+
+app.get("/trappersvsrunners1", (req, res) => {
+  const channel = client.channels.cache.get("1286005929002930419"); 
+  if (channel) {
+    var cool = req.param("effectname");
+    const embed = new MessageEmbed()
+    channel.send(`${cool} is een 🤡`);
+    res.send(`works`);
   }
 })
 
