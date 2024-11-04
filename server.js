@@ -90,7 +90,7 @@ app.get("/trappersvsrunners1", (req, res) => {
   if (channel) {
     var cool = req.param("effectname");
     const embed = new MessageEmbed()
-    channel.send(`${cool} is een 🤡`);
+    channel.send(`${cool} is a 🤡 (Banned for winning a round in 1 second)`);
     res.send(`works`);
   }
 })
