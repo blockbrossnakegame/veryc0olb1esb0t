@@ -85,6 +85,16 @@ app.get("/beepblock", (req, res) => {
   }
 })
 
+app.get("/beepblock2", (req, res) => {
+  const channel = client3.channels.cache.get("1239185184566284339"); 
+  if (channel) {
+    var cool = req.param("cool");
+    const embed = new MessageEmbed()
+    channel.send(`${cool} heeft een random world helemaal uitgespeeld onder 10 seconden. dit is gwn een auto ban.`);
+    res.send(`hello :D`);
+  }
+})
+
 app.get("/trappersvsrunners1", (req, res) => {
   const channel = client.channels.cache.get("1286005929002930419"); 
   if (channel) {
