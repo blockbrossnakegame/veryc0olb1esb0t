@@ -95,7 +95,7 @@ app.get("/beepblock2", (req, res) => {
   }
 })
 
-app.get("/trappersvsrunners1", (req, res) => {
+app.get("/trappersvsrunners1", async (req, res) => {
   const channel = client.channels.cache.get("1286005929002930419"); 
   const channel2 = client.channels.cache.get("1232077870432522371");
   const themessage = await channel2.messages.fetch('1307753855429120103');
@@ -107,7 +107,7 @@ app.get("/trappersvsrunners1", (req, res) => {
   if (channel) {
     var cool = req.param("effectname");
     const embed = new MessageEmbed()
-    channel.send(`${cool} is a cheater 🤡 (Banned for winning a round in <1 second)`);
+    channel.send(`${cool} is a cheater 🤡 (Banned for winning a round in <1 second) `);
     res.send(`works`);
   }
 })
