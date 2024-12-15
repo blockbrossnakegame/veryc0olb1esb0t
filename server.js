@@ -30,15 +30,15 @@ client3.on("ready", () => {
 });
 
 
-app.get('/', function (req, res) => {
+app.get('/', (req, res) => {
      res.send('hi');
 });
 
-app.get('/2', function (req, res) => {
+app.get('/2', function (req, res) {
      res.sendFile('index.html', {root : _dirname });
 });
 
-app.get('/3', function (req, res) => {
+app.get('/3', function (req, res) {
      res.sendFile('index.html', {root : _dirname });
 });
 
