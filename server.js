@@ -30,17 +30,17 @@ client3.on("ready", () => {
 });
 
 
-app.get('/', (req, res) => {
-     res.send(`Hi`);
+app.get('/', function (req, res) => {
+     res.send('hi');
 });
 
-app.get("/2", (req, res) => {
-  res.sendFile(__dirman + 'index.html');
-})
+app.get('/2', function (req, res) => {
+     res.sendFile('index.html', {root : _dirname });
+});
 
-app.get("/3", (req, res) => {
-  res.sendFile(__dirman + '/index.html');
-})
+app.get('/3', function (req, res) => {
+     res.sendFile('index.html', {root : _dirname });
+});
 
 app.get("/test", async (req, res) => {
     const channel = client.channels.cache.get("1232077870432522371")
