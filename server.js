@@ -29,6 +29,11 @@ client3.on("ready", () => {
   client3.user.setActivity("Beep block!", { type: "PLAYING" });
 });
 
+app.get("/getmsg", async (req, res) => {
+  const channel = client.channels.cache.get("1232077870432522371")
+  const lastMessage = await channel.messages.fetch({ limit: 1 });
+  res.send(`${lastMessage.author.username} ${lastMessage.content}`);
+})
 
 app.get('/', (req, res) => {
      res.send('hi');
