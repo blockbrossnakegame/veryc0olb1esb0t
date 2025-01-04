@@ -33,7 +33,8 @@ app.get("/getmsg", async (req, res) => {
   const channel = client.channels.cache.get("1311381333406257163")
   const msg = await channel.messages.fetch({ limit: 2 });
   const lastMessageContent = msg.first().content;
-  res.send(lastMessageContent);
+  const lastMessageuser = msg.first().author.username;
+  res.send(`<font color='#6495ED'>[${lastMessageuser}]:</font> ${lastMessageContent}`);
 })
 
 app.get('/', (req, res) => {
