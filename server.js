@@ -31,8 +31,9 @@ client3.on("ready", () => {
 
 app.get("/getmsg", async (req, res) => {
   const channel = client.channels.cache.get("1311381333406257163")
-  const lastMessage = await channel.messages.fetch({ limit: 1 });
-  res.send(lastMessage.first().content);
+  const msg = await channel.messages.fetch({ limit: 2 });
+  const lastMessageContent = msg.first().content;
+  res.send(lastMessageContent);
 })
 
 app.get('/', (req, res) => {
