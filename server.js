@@ -255,7 +255,7 @@ client.on("message", async (message) => {
           }
         }
       }
-      if (message.channel.id === '1212075960275312640' && message.channel.id === '1332801192589398136') { 
+      if (message.channel.id === '1212075960275312640' || message.channel.id === '1332801192589398136') { 
         if (command.startsWith("!8ball")) {
           let nicknames = ["🎱 yes", "🎱 no", "🎱 yes r u that dumb?", "🎱no, you idiot", "🎱idk why do you ask me?", "🎱too lazy to answer"]
           message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
