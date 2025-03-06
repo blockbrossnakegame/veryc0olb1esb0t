@@ -255,7 +255,7 @@ client.on("message", async (message) => {
           }
         }
       }
-      if (message.channel.id === '1212075960275312640') { 
+      if (message.channel.id === '1212075960275312640' && message.channel.id === '1332801192589398136') { 
         if (command.startsWith("!8ball")) {
           let nicknames = ["🎱 yes", "🎱 no", "🎱 yes r u that dumb?", "🎱no, you idiot", "🎱idk why do you ask me?", "🎱too lazy to answer"]
           message.channel.send(`${nicknames[Math.floor(Math.random() * nicknames.length)]}`);
@@ -603,6 +603,7 @@ client3.on("message", async (message) => {
 client.on("messageUpdate", async (oldMessage, newMessage) => {
   if (newMessage.author.bot) return;
   const channel = client.channels.cache.get("1225151478839119902"); 
+  const channel2 = client.channels.cache.get("1347276523698126980"); 
   if (channel) {
     if (oldMessage.guild.id === '1115963224462999613') {
       const embed = new MessageEmbed()
@@ -613,6 +614,16 @@ client.on("messageUpdate", async (oldMessage, newMessage) => {
       channel.send(embed);
     }
   }
+  if (channel2) {
+    if (oldMessage.guild.id === '1328445619395887246') {
+      const embed = new MessageEmbed()
+      .setTitle(`${oldMessage.author.username}'s messages is edited`)
+      .setDescription(`**Old message content:** ${oldMessage.content}
+      **New message content:** ${newMessage.content}`)
+      .setColor("#FFBF00");
+      channel2.send(embed);
+    }
+  }
 });
 
 client.on("messageDelete", async (deletedMessage) => {
@@ -620,6 +631,14 @@ client.on("messageDelete", async (deletedMessage) => {
   } else {
     if (deletedMessage.guild.id === '1115963224462999613') {
       let channel = client.channels.cache.get("1225151427513679872");
+      const embed = new MessageEmbed()
+      .setTitle(`${deletedMessage.author.username}'s messages is deleted`)
+      .setDescription(`**Message content:** ${deletedMessage.content}`)
+      .setColor("#ff0000");
+      channel.send(embed);
+    }
+    if (deletedMessage.guild.id === '1328445619395887246') {
+      let channel = client.channels.cache.get("1347276560150954075");
       const embed = new MessageEmbed()
       .setTitle(`${deletedMessage.author.username}'s messages is deleted`)
       .setDescription(`**Message content:** ${deletedMessage.content}`)
