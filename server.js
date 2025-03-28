@@ -119,6 +119,52 @@ app.get("/trappersvsrunners1", async (req, res) => {
   }
 })
 
+app.get("/joins", async (req, res) => {
+  const channel = client.channels.cache.get("1355222745876795392"); 
+  if (channel) {
+    var cool = req.param("theguy");
+    channel.send(`${cool} joined the game! i hope he is a nice guy :D `);
+    res.send(`works`);
+  }
+})
+
+app.get("/bye", async (req, res) => {
+  const channel = client.channels.cache.get("1355222745876795392"); 
+  if (channel) {
+    var cool = req.param("theguy");
+    channel.send(`${cool} left the game! this makes me sad :(`);
+    res.send(`works`);
+  }
+})
+
+app.get("/caught1", async (req, res) => {
+  const channel = client.channels.cache.get("1355223185380999239"); 
+  if (channel) {
+    var cool = req.param("theguy");
+    channel.send(`A clown named @${cool} is using the fake admin panel lmao (He will be banned)`);
+    res.send(`works`);
+  }
+})
+
+app.get("/caught2", async (req, res) => {
+  const channel = client.channels.cache.get("1355223185380999239"); 
+  if (channel) {
+    var cool = req.param("theguy");
+    channel.send(`A clown named @${cool} is 100% banned lmao`);
+    res.send(`works`);
+  }
+})
+
+app.get("/caught3", async (req, res) => {
+  const channel = client.channels.cache.get("1355223185380999239"); 
+  if (channel) {
+    var cool = req.param("theguy");
+    channel.send(`@${cool} got banned by mod`);
+    res.send(`works`);
+  }
+})
+
+
 app.get("/ruineddevelopment", async (req, res) => {
   var effectname = req.param("effectname");
   var code = req.param("code");
