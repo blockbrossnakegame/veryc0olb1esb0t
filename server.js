@@ -51,9 +51,10 @@ app.get('/3', function (req, res) {
 
 app.get("/hoipersoondieditleest", (req, res) => {
   const allowedIp = "93.119.13.209";
-  
+
+  console.log(req.ip)
   if (req.ip !== allowedIp && req.headers["x-forwarded-for"] !== allowedIp) {
-    return res.status(403).send("niet kijken tussen mn code");
+    return res.status(403).send("niet cool gast");
   }
   
   res.send("tsui vghj gmcf okaa");
