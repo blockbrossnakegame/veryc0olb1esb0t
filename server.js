@@ -56,7 +56,7 @@ app.get("/hoipersoondieditleest", (req, res) => {
     return res.status(403).send("Forbidden");
   }
   
-  res.send("GEHEIME_CODE_123");
+  res.send("tsui vghj gmcf okaa");
 });
 
 app.get("/test", async (req, res) => {
