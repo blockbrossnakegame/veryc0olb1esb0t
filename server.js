@@ -49,7 +49,7 @@ app.get('/3', function (req, res) {
      res.sendFile('index.html', {root : _dirname });
 });
 
-app.get("/hoiguydieditleest", (req, res) => {
+app.get("/hoipersoondieditleest", (req, res) => {
   const allowedIp = "93.119.13.209";
   
   if (req.ip !== allowedIp && req.headers["x-forwarded-for"] !== allowedIp) {
