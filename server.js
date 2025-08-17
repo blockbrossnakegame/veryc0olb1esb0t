@@ -49,6 +49,16 @@ app.get('/3', function (req, res) {
      res.sendFile('index.html', {root : _dirname });
 });
 
+app.get("/hoiguydieditleest", (req, res) => {
+  const allowedIp = "93.119.13.209";
+  
+  if (req.ip !== allowedIp && req.headers["x-forwarded-for"] !== allowedIp) {
+    return res.status(403).send("Forbidden");
+  }
+  
+  res.send("GEHEIME_CODE_123");
+});
+
 app.get("/test", async (req, res) => {
     const channel = client.channels.cache.get("1232077870432522371")
     const themessage = await channel.messages.fetch('1236313294873296907')
