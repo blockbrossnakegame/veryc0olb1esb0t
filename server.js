@@ -49,8 +49,34 @@ app.get('/3', function (req, res) {
      res.sendFile('index.html', {root : _dirname });
 });
 
+const goede = "tsui vghj gmcf okaa";
+
+function fake(real) {
+  return real
+    .split(" ") // split in woorden
+    .map(word => {
+      return word
+        .split("")
+        .map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))) // willekeurige letters
+        .join("");
+    })
+    .join(" ");
+}
+
+function obscureArray(arr) {
+  return arr
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+}
+
 app.get("/hoipersoondieditleest", (req, res) => {
-  res.send("tsui vghj gmcf okaa");
+  let codes = Array.from({ length: 420 }, (_, i) => fake(i));
+  codes[186] = goede;
+
+  const shuffledCodes = obscureArray(codes);
+  
+  res.send(shuffledCodes.join("\n"));
 });
 
 app.get("/test", async (req, res) => {
