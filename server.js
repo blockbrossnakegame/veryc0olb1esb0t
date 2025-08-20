@@ -49,35 +49,14 @@ app.get('/3', function (req, res) {
      res.sendFile('index.html', {root : _dirname });
 });
 
-const goede = "tsui vghj gmcf okaa";
-
-function fake(real) {
-  return real
-    .split(" ") // split in woorden
-    .map(word => {
-      return word
-        .split("")
-        .map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))) // willekeurige letters
-        .join("");
-    })
-    .join(" ");
-}
-
-function obscureArray(arr) {
-  return arr
-    .map((value) => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value);
-}
-
-app.get("/hoipersoondieditleest", (req, res) => {
-  let codes = Array.from({ length: 420 }, (_, i) => fake(i));
-  codes[186] = goede;
-
-  const shuffledCodes = obscureArray(codes);
-  
-  res.send(shuffledCodes.join("\n"));
-});
+app.get("/send_err", async (req, res) => {
+    const channel = client.channels.cache.get("1355222745876795392"); 
+  if (channel) {
+    var cool = req.param("err");
+    channel.send(`[ROUND SYSTEM ERR ❌]: ${cool}`);
+    res.send(`works`);
+  }
+})
 
 app.get("/test", async (req, res) => {
     const channel = client.channels.cache.get("1232077870432522371")
