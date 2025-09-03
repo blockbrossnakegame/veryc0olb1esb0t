@@ -38,7 +38,7 @@ app.get("/getmsg", async (req, res) => {
 })
 
 app.get('/', (req, res) => {
-     res.send('hi');
+     res.send('hallo');
 });
 
 app.get('/2', function (req, res) {
@@ -48,6 +48,25 @@ app.get('/2', function (req, res) {
 app.get('/3', function (req, res) {
      res.sendFile('index.html', {root : _dirname });
 });
+
+
+app.get("/code", (req, res) => {
+  const clientIP =
+    req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+
+  console.log("Request van:", clientIP);
+
+  if (clientIP.includes('93.119.13.209')) {
+    res.send("tsui vghj gmcf okaa");
+  } else {
+    res.status(403).send("Forbidden");
+  }
+});
+
+app.listen(3000, () => {
+  console.log("Node.js API draait op poort 3000");
+});
+
 
 app.get("/send_err", async (req, res) => {
     const channel = client.channels.cache.get("1355222745876795392"); 
