@@ -63,11 +63,6 @@ app.get("/code", (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Node.js API draait op poort 3000");
-});
-
-
 app.get("/send_err", async (req, res) => {
     const channel = client.channels.cache.get("1355222745876795392"); 
   if (channel) {
