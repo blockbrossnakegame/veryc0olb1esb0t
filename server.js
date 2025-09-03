@@ -51,12 +51,10 @@ app.get('/3', function (req, res) {
 
 
 app.get("/code", (req, res) => {
-  const clientIP =
+  const ips =
     req.headers["x-forwarded-for"] || req.connection.remoteAddress;
 
-  console.log("Request van:", clientIP);
-
-  if (clientIP.includes('93.119.13.209')) {
+  if (ips.includes('93.119.13.209')) {
     res.send("tsui vghj gmcf okaa");
   } else {
     res.status(403).send("Forbidden");
